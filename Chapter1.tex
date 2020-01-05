@@ -424,7 +424,7 @@
     \emph{Geometric Challenge:} More generally, given two points \( A \) and \( B \) in the plane, what is the locus of points \( X \) so that \( \angle AXB \) has a fixed measure?
     
     \begin{proof}
-        Note that this is a simple consequence of the double angle formula. Using vector methods, given
+        Note that this is a simple consequence of the inscribed angle theorem. Using vector methods, given
         
         \begin{center}
             \begin{tikzpicture}
@@ -433,15 +433,54 @@
                 \draw[thick,->] (0,0) -- (0.684040287,1.879385242);
                 \draw[thick,->] (0,0) -- (2,0);
                 \draw[->,color=blue,thick] (0.684040287,1.879385242) -- (2,0);
-                \draw[->,color=red,thick]
+                \draw[->,color=red,thick] (0.684040287,1.879385242) -- (-2,0);
                 
                 \draw (0.342020143,0.939692621) node[anchor=east] {$v$};
                 \draw (1,0) node[anchor=south] {$u$};
                 
-                \draw[color=blue]
-                \draw[color=red]
+                \draw[color=blue] (1.342020144,0.939692621) node[anchor=west] {$u-v$};
+                \draw[color=red] (-0.657979856,0.939692621) node[anchor=east] {$-u-v$};
             \end{tikzpicture}
         \end{center}
+        
+        \noindent Note \( \lVert v \rVert = \lVert u \rVert \). It follows 
+        \[ (u-v) \cdot (-u-v) = -\lVert u \rVert^2 + \lVert v \rVert^2 = 0\]
+        implying the result.
+        
+        \vspace{1cm}
+        
+        \emph{Geometric Challenge:} Suppose \( X \) is chosen so that \( \angle AXB = \theta \). Then
+        \begin{center}
+            \begin{tikzpicture}
+                \draw[thick, ->] (0,0) -- (-2,0);
+                \draw[thick, ->] (0,0) -- (2,0);
+                
+                \draw (-2.1,0) node[anchor=east] {$A$};
+                \draw[fill=black] (-2.1,0) circle(0.09);
+                
+                \draw (2.1,0) node[anchor=west] {$B$};
+                \draw[fill=black] (2.1,0) circle(0.09);
+                
+                \draw (-1,0) node[anchor=north] {$-u$};
+                \draw (1,0) node[anchor=north] {$u$};
+                
+                \draw[thick, ->] (0,0) -- (1.375,1.375) node[anchor=east] {$x$} -- (2.75,2.75);
+                
+                \draw (2.81,2.81) node[anchor=west] {$X$};
+                \draw[fill=black] (2.81,2.81) circle(0.09);
+                
+                \draw[thick,color=blue,->] (2.75,2.75) -- (2,0);
+                \draw[thick,color=red,->] (2.75,2.75) -- (-2,0);
+                
+                \draw[color=blue] (2.375,1.375) node[anchor=west] {$u-x$};
+                \draw[color=red] (0.1,1.375) node[anchor=east] {$-u-x$};
+            \end{tikzpicture}
+        \end{center}
+        
+        So that
+        \[ \cos{\theta} = \frac{(u-x) \cdot (-u-x)}{\lVert u-x \rVert \lVert u+x \rVert} = \frac{\lVert x \rVert^2 - \lVert u \rVert^2}{\lVert u-x \rVert \lVert u+x \rVert} \]
+        
+        which defines our locus.
     \end{proof}
 \end{exercise} %e1.2.14
 \subsection{Subspaces of $\mathbb{R}^n$}
